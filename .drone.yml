@@ -5,12 +5,19 @@ name: collect
 steps:
 - name: collect
   image: ubuntu
+  environment:
+    GIT_USER_EMAIL: 
+      from_secret: GITEMAIL
+    GIT_USER_NAME:
+      from_secret: GITUSR
   commands:
   - apt-get update
   - apt-get install curl -y
   - apt-get install git -y
   - mkdir ./data
   - curl https://raw.githubusercontent.com/freefq/free/master/v2 > ./data/v2
+  - git config --global user.email "$${GIT_USER_EMAIL}"
+  - git config --global user.name "$${GIT_USER_NAME}"
   - git add --all
   - git commit -m "update data"
   - git push origin main
