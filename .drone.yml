@@ -29,4 +29,3 @@ steps:
 trigger:
   event:
   - cron
-  - push
