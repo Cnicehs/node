@@ -1,0 +1,17 @@
+kind: pipeline
+type: docker
+name: collect
+
+steps:
+- name: collect
+  image: ubuntu
+  commands:
+  - curl https://raw.githubusercontent.com/freefq/free/master/v2 > ./data/v2
+  - git add --all
+  - git commit -m "update data"
+  - git push origin main
+
+
+trigger:
+  event:
+  - cron
