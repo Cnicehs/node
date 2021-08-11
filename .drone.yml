@@ -13,7 +13,10 @@ steps:
     GIT_USER_PWD:
       from_secret: GITPWD
   commands:
-  - mkdir ./data
+  - |
+    if [ ! -d ./data ]; then
+      mkdir ./data
+    fi
   - curl https://raw.githubusercontent.com/freefq/free/master/v2 > ./data/v2
   - git config --global user.email "$${GIT_USER_EMAIL}"
   - git config --global user.name "$${GIT_USER_NAME}"
