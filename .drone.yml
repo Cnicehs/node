@@ -17,7 +17,7 @@ steps:
     if [ ! -d ./data ]; then
       mkdir ./data
     fi
-  - curl https://raw.githubusercontent.com/freefq/free/master/v2 > ./data/v2
+  - curl https://raw.githubusercontent.com/freefq/free/master/v2 > ./docs/index.html
   - git config --global user.email "$${GIT_USER_EMAIL}"
   - git config --global user.name "$${GIT_USER_NAME}"
   - git add --all
