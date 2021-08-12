@@ -14,14 +14,14 @@ steps:
       from_secret: GITPWD
   commands:
   - |
-    if [ ! -d ./data ]; then
-      mkdir ./data
+    if [ ! -d ./docs ]; then
+      mkdir ./docs
     fi
   - curl https://raw.githubusercontent.com/freefq/free/master/v2 > ./docs/index.html
   - git config --global user.email "$${GIT_USER_EMAIL}"
   - git config --global user.name "$${GIT_USER_NAME}"
   - git add --all
-  - git commit -m "update data"
+  - git commit -m "update docs"
   - git remote add pu https://$${GIT_USER_NAME}:$${GIT_USER_PWD}@github.com/$${GIT_USER_NAME}/$${DRONE_REPO_NAME}.git
   - git push pu main
 
