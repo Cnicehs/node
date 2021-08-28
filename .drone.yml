@@ -29,3 +29,4 @@ steps:
 trigger:
   event:
   - cron
+  - custom
