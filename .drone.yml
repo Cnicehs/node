@@ -4,7 +4,7 @@ name: collect
 
 steps:
 - name: collect
-  image: crinte/alpine
+  image: crinte/pango
   environment:
     GIT_USER_EMAIL: 
       from_secret: GITEMAIL
@@ -17,8 +17,7 @@ steps:
     if [ ! -d ./docs ]; then
       mkdir ./docs
     fi
-  - curl https://raw.githubusercontent.com/umelabs/node.umelabs.dev/master/Subscribe/v2ray.md > ./docs/index.html
-#   - curl https://raw.githubusercontent.com/freefq/free/master/v2 > ./docs/index.html
+  - go run ./
   - git config --global user.email "$${GIT_USER_EMAIL}"
   - git config --global user.name "$${GIT_USER_NAME}"
   - git add --all
